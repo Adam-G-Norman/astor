@@ -1,5 +1,7 @@
 package fr.inria.main;
 
+
+
 import java.io.File;
 import java.io.FileWriter;
 import java.nio.file.Files;
@@ -14,6 +16,7 @@ import fr.inria.astor.core.faultlocalization.flacoco.FlacocoFaultLocalization;
 import fr.inria.astor.core.faultlocalization.gzoltar.GZoltarFaultLocalization;
 import fr.inria.astor.core.faultlocalization.gzoltar.NovelGZoltarFaultLocalization;
 import fr.inria.astor.core.setup.ConfigurationProperties;
+import main.Runner;
 
 /**
  * Facade for using fault localization from Astor
@@ -142,6 +145,9 @@ public class FaultLocalizationMain extends AbstractMain {
 			log.error("Could not execute any mode at " + faultLocalizationMode + " Options "
 					+ Arrays.toString(FaultLocalization.values()));
 		}
+
+		Runner runner = new Runner();
+		runner.test();
 
 		long endT = System.currentTimeMillis();
 		log.info("Time Total(s): " + (endT - startT) / 1000d);
